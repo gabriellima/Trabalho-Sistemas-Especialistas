@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+trabalho_1/__init__.py
+trabalho_1.egg-info/PKG-INFO
+trabalho_1.egg-info/SOURCES.txt
+trabalho_1.egg-info/dependency_links.txt
+trabalho_1.egg-info/entry_points.txt
+trabalho_1.egg-info/not-zip-safe
+trabalho_1.egg-info/top_level.txt
