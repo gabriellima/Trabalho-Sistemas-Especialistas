@@ -27,3 +27,11 @@ class BancoLogico:
         else:
             return self.INADEQUADA
 
+    def investimento(self):
+        if not self.poupanca():
+            return 'Poupanca'
+        elif self.renda():
+            return 'Acoes'
+        else:
+            return 'Ambos'
+

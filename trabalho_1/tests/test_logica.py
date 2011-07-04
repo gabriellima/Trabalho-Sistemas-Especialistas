@@ -37,6 +37,27 @@ class TestLogica(unittest.TestCase):
 
         bl.renda() |should| equal_to(bl.INADEQUADA)
 
+    def test_investimento(self):
+        bl = BancoLogico()
+
+        def renda(): return bl.ADEQUADA
+        bl.renda = renda
+        def poupanca(): return bl.ADEQUADA
+        bl.poupanca = poupanca
+        bl.investimento() |should| equal_to('Acoes')
+
+        def renda(): return bl.ADEQUADA
+        bl.renda = renda
+        def poupanca(): return bl.INADEQUADA
+        bl.poupanca = poupanca
+        bl.investimento() |should| equal_to('Poupanca')
+
+        def renda(): return bl.INADEQUADA
+        bl.renda = renda
+        def poupanca(): return bl.ADEQUADA
+        bl.poupanca = poupanca
+        bl.investimento() |should| equal_to('Ambos')
+
 if __name__ == '__main__':
     suite = unittest.TestSuite()
     suite.addTest(TestLogica)
