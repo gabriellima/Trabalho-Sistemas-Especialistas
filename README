@@ -12,6 +12,8 @@ Pequeno exemplo de aplicação:
     True
     >>> bl.renda()
     False
+    >>> bl.investimento()
+    'Ambos'
 
 
 TODO: passar este README para linguagem Markdown
