@@ -5,71 +5,59 @@ import unittest
 from trabalho_1.bl import BancoLogico
 
 class TestPoupanca(unittest.TestCase):
-    def test_poupanca_inadequada(self):
+    def test_inadequada(self):
         bl = BancoLogico()
 
-        dependentes = 1
-        quantia_poupada = 4999
-        bl.poupanca(dependentes, quantia_poupada) |should| \
-                                                         equal_to(bl.INADEQUADA)
-        quantia_poupada = 5000
-        bl.poupanca(dependentes, quantia_poupada) |should_not| \
-                                                         equal_to(bl.INADEQUADA)
-        quantia_poupada = 5001
-        bl.poupanca(dependentes, quantia_poupada) |should_not| \
-                                                         equal_to(bl.INADEQUADA)
+        bl.dependentes = 1
+        bl.quantia_poupada = 4999
+        bl.poupanca() |should| equal_to(bl.INADEQUADA)
+        bl.quantia_poupada = 5000
+        bl.poupanca() |should_not| equal_to(bl.INADEQUADA)
+        bl.quantia_poupada = 5001
+        bl.poupanca() |should_not| equal_to(bl.INADEQUADA)
 
-        dependentes = 2
-        quantia_poupada = 9999
-        bl.poupanca(dependentes, quantia_poupada) |should| \
-                                                         equal_to(bl.INADEQUADA)
-        quantia_poupada = 10000
-        bl.poupanca(dependentes, quantia_poupada) |should_not| \
-                                                         equal_to(bl.INADEQUADA)
-        quantia_poupada = 10001
-        bl.poupanca(dependentes, quantia_poupada) |should_not| \
-                                                         equal_to(bl.INADEQUADA)
+        bl.dependentes = 2
+        bl.quantia_poupada = 9999
+        bl.poupanca() |should| equal_to(bl.INADEQUADA)
+        bl.quantia_poupada = 10000
+        bl.poupanca() |should_not| equal_to(bl.INADEQUADA)
+        bl.quantia_poupada = 10001
+        bl.poupanca() |should_not| equal_to(bl.INADEQUADA)
 
-        dependentes = 3
-        quantia_poupada = 14999
-        bl.poupanca(dependentes, quantia_poupada) |should| \
-                                                   equal_to(bl.INADEQUADA)
-        quantia_poupada = 15000
-        bl.poupanca(dependentes, quantia_poupada) |should_not| \
-                                                   equal_to(bl.INADEQUADA)
-        quantia_poupada = 15001
-        bl.poupanca(dependentes, quantia_poupada) |should_not| \
-                                                   equal_to(bl.INADEQUADA)
+        bl.dependentes = 3
+        bl.quantia_poupada = 14999
+        bl.poupanca() |should| equal_to(bl.INADEQUADA)
+        bl.quantia_poupada = 15000
+        bl.poupanca() |should_not| equal_to(bl.INADEQUADA)
+        bl.quantia_poupada = 15001
+        bl.poupanca() |should_not| equal_to(bl.INADEQUADA)
 
-    def test_poupanca_adequada(self):
+    def test_adequada(self):
         bl = BancoLogico()
 
-        dependentes = 1
-        quantia_poupada = 4999
-        bl.poupanca(dependentes, quantia_poupada) |should_not| \
-                                                   equal_to(bl.ADEQUADA)
-        quantia_poupada = 5000
-        bl.poupanca(dependentes, quantia_poupada) |should| equal_to(bl.ADEQUADA)
-        quantia_poupada = 5001
-        bl.poupanca(dependentes, quantia_poupada) |should| equal_to(bl.ADEQUADA)
+        bl.dependentes = 1
+        bl.quantia_poupada = 4999
+        bl.poupanca() |should_not| equal_to(bl.ADEQUADA)
+        bl.quantia_poupada = 5000
+        bl.poupanca() |should| equal_to(bl.ADEQUADA)
+        bl.quantia_poupada = 5001
+        bl.poupanca() |should| equal_to(bl.ADEQUADA)
 
-        dependentes = 2
-        quantia_poupada = 9999
-        bl.poupanca(dependentes, quantia_poupada) |should_not| \
-                                                   equal_to(bl.ADEQUADA)
-        quantia_poupada = 10000
-        bl.poupanca(dependentes, quantia_poupada) |should| equal_to(bl.ADEQUADA)
-        quantia_poupada = 10001
-        bl.poupanca(dependentes, quantia_poupada) |should| equal_to(bl.ADEQUADA)
+        bl.dependentes = 2
+        bl.quantia_poupada = 9999
+        bl.poupanca() |should_not| equal_to(bl.ADEQUADA)
+        bl.quantia_poupada = 10000
+        bl.poupanca() |should| equal_to(bl.ADEQUADA)
+        bl.quantia_poupada = 10001
+        bl.poupanca() |should| equal_to(bl.ADEQUADA)
 
-        dependentes = 3
-        quantia_poupada = 14999
-        bl.poupanca(dependentes, quantia_poupada) |should_not| \
-                                                   equal_to(bl.ADEQUADA)
-        quantia_poupada = 15000
-        bl.poupanca(dependentes, quantia_poupada) |should| equal_to(bl.ADEQUADA)
-        quantia_poupada = 15001
-        bl.poupanca(dependentes, quantia_poupada) |should| equal_to(bl.ADEQUADA)
+        bl.dependentes = 3
+        bl.quantia_poupada = 14999
+        bl.poupanca() |should_not| equal_to(bl.ADEQUADA)
+        bl.quantia_poupada = 15000
+        bl.poupanca() |should| equal_to(bl.ADEQUADA)
+        bl.quantia_poupada = 15001
+        bl.poupanca() |should| equal_to(bl.ADEQUADA)
 
 
 if __name__ == '__main__':

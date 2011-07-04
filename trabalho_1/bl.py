@@ -2,15 +2,27 @@
 class BancoLogico:
     ADEQUADA = True
     INADEQUADA = False
+    ESTAVEL = True
+    INSTAVEL = False
 
-    def poupanca(self, numero_de_dependentes, quantia_poupada):
-        if quantia_poupada >= 5000*numero_de_dependentes:
+    def quantia_poupada(self, valor):
+        self.quantia_poupada = valor
+
+    def ganhos(self, valor, condicao):
+        self.ganhos = valor
+        self.condicao = condicao
+
+    def dependentes(self, quantidade):
+        self.dependentes = quantidade
+
+    def poupanca(self):
+        if self.quantia_poupada >= 5000*self.dependentes:
             return self.ADEQUADA
         else:
             return self.INADEQUADA
 
-    def renda(self, numero_de_dependentes, ganhos):
-        if ganhos >= 15000+(4000*numero_de_dependentes):
+    def renda(self):
+        if self.condicao and self.ganhos >= 15000+(4000*self.dependentes):
             return self.ADEQUADA
         else:
             return self.INADEQUADA
